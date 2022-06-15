@@ -11,10 +11,10 @@ let specialAr = ['+', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+'
 
 
 function getChoices() {
-  // Prompt for user input
+// Prompt for user input
+optionAr = [];
 
   userpasswordLength = window.prompt("How many characters do you want 8-128?");
-  // userpasswordLength = parseInt(userpasswordLength);
 
   if (!!!userpasswordLength || userpasswordLength < 8 || userpasswordLength > 128) {
     alert("You must choose a number between 8 and 128!");
@@ -46,11 +46,11 @@ function getChoices() {
         let passwordVal = Math.floor(Math.random() * optionAr.length);
         password = password + optionAr[passwordVal];
       }
-      //  Displays generated password to page.
+//  Displays generated password to page.
       return password;
     }
 
-  // Write password to the #password input
+// Write password to the #password input
   function writePassword() {
     let correctChoices = getChoices();
       if (correctChoices){
