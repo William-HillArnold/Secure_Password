@@ -11,8 +11,8 @@ let specialAr = ['+', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+'
 
 
 function getChoices() {
-// Prompt for user input
-optionAr = [];
+  // Prompt for user input
+  optionAr = [];
 
   userpasswordLength = window.prompt("How many characters do you want 8-128?");
 
@@ -36,30 +36,30 @@ optionAr = [];
   if (confirm("Do you also want to add special characters?")) {
     optionAr = optionAr.concat(specialAr);
   }
-   return true
+  return true
+}
+
+function generatePassword() {
+  let password = "";
+
+  for (let i = 0; i < userpasswordLength; i++) {
+    let passwordVal = Math.floor(Math.random() * optionAr.length);
+    password = password + optionAr[passwordVal];
   }
-
-   function generatePassword() {
-     let password = "";
-
-      for (let i = 0; i < userpasswordLength; i++) {
-        let passwordVal = Math.floor(Math.random() * optionAr.length);
-        password = password + optionAr[passwordVal];
-      }
-//  Displays generated password to page.
-      return password;
-    }
+  //  Displays generated password to page.
+  return password;
+}
 
 // Write password to the #password input
-  function writePassword() {
-    let correctChoices = getChoices();
-      if (correctChoices){
+function writePassword() {
+  let correctChoices = getChoices();
+  if (correctChoices) {
     let newPassword = generatePassword();
     let passwordText = document.querySelector("#password");
     passwordText.value = newPassword;
   }
 }
-  // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
-  
+
